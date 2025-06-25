@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact - CleanTech</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-image: url('{{ url_for('static', filename='contact.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Ensures background stays in place */
+            color: white;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.75);
+            padding: 50px;
+            border-radius: 16px;
+            max-width: 800px;
+            margin: 80px auto;
+            text-align: center;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: #ffffff;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1.1em;
+            color: #dddddd;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #ffd700;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 30px;
+                margin: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you!</p>
+        <ul>
+            <li>Email: <a href="mailto:support@cleantech.ai">support@cleantech.ai</a></li>
+            <li>Phone: +91-9876543210</li>
+            <li>Address: CleanTech HQ, Eco Park, Kadapa, Andhra Pradesh, India</li>
+        </ul>
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>
