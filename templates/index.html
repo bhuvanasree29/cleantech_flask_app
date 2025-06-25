@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CleanTech Waste Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            background-image: url('{{ url_for('static', filename='ewaste.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.75); /* black with transparency */
+            padding: 50px;
+            border-radius: 16px;
+            max-width: 800px;
+            height: auto;
+            margin: 80px auto;
+            text-align: center;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        input[type="file"],
+        input[type="submit"] {
+            margin: 10px;
+            padding: 10px;
+            font-size: 1em;
+        }
+
+        .result {
+            margin-top: 20px;
+        }
+
+        .result img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        a {
+            color: #ffd700;
+            font-weight: bold;
+            text-decoration: underline;
+            margin-top: 15px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Waste Classification</h1>
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <input type="submit" value="Classify">
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                <h2>Prediction: {{ prediction }}</h2>
+                <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
+                <br><br>
+                <a href="/">Back to Home</a>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
